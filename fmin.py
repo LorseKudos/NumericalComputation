@@ -9,16 +9,16 @@ import sys
 
 def main():
     args = sys.argv[1:]
-    problem = string.atoi(args[0]) #課題を決める変数
-    method = string.atoi(args[1]) #手法を決める変数
-    search = string.atoi(args[2]) #直線探索を決める変数
+    problem = int(args[0]) #課題を決める変数
+    method = int(args[1]) #手法を決める変数
+    search = int(args[2]) #直線探索を決める変数
 
     #各課題についてevalf,evalg,evalhを定義,初期点(x)・次元数(n)を決定
     if problem == 1:
         n = 2
         x = zeros(n)
         for i in range(0,n): #初期点を入力
-            x[i] = float(raw_input('初期点の第'+str(i+1)+'成分を入力してください: '))
+            x[i] = float(input('初期点の第'+str(i+1)+'成分を入力してください: '))
         x_0 = x
 
         def evalf(x):
@@ -64,7 +64,7 @@ def main():
             return H
 
     elif problem == 3:
-        n = int(raw_input('次元数: ')) #次元数を入力
+        n = int(input('次元数: ')) #次元数を入力
 
         def evalf(x):
             f = inner(dot(A,x),x) / 2.0
@@ -90,10 +90,10 @@ def main():
             return g
 
     elif problem == 5:
-        n = int(raw_input('次元数: ')) #次元数を入力
+        n = int(input('次元数: ')) #次元数を入力
         x = zeros(n)
         for i in range(0,n): #初期点を入力
-          x[i] = float(raw_input('初期点の第'+str(i+1)+'成分を入力してください: '))
+          x[i] = float(input('初期点の第'+str(i+1)+'成分を入力してください: '))
         x_0 = x
 
         l = -32.768 * ones(n) #制約集合の下限
